@@ -21,13 +21,13 @@ class Activities
     #[ORM\Column]
     private ?float $cost = null;
 
-    #[ORM\OneToMany(mappedBy: 'activities', targetEntity: FriendGroup::class)]
-    private Collection $friend_group_id;
+    #[ORM\ManyToOne(inversedBy: 'activities')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?FriendGroup $friendGroup = null;
 
-    public function __construct()
-    {
-        $this->friend_group_id = new ArrayCollection();
-    }
+
+
+
 
     public function getId(): ?int
     {
@@ -58,33 +58,19 @@ class Activities
         return $this;
     }
 
-    /**
-     * @return Collection<int, FriendGroup>
-     */
-    public function getFriendGroupId(): Collection
+    public function getFriendGroup(): ?FriendGroup
     {
-        return $this->friend_group_id;
+        return $this->friendGroup;
     }
 
-    public function addFriendGroupId(FriendGroup $friendGroupId): static
+    public function setFriendGroup(?FriendGroup $friendGroup): static
     {
-        if (!$this->friend_group_id->contains($friendGroupId)) {
-            $this->friend_group_id->add($friendGroupId);
-            $friendGroupId->setActivities($this);
-        }
+        $this->friendGroup = $friendGroup;
 
         return $this;
     }
 
-    public function removeFriendGroupId(FriendGroup $friendGroupId): static
-    {
-        if ($this->friend_group_id->removeElement($friendGroupId)) {
-            // set the owning side to null (unless already changed)
-            if ($friendGroupId->getActivities() === $this) {
-                $friendGroupId->setActivities(null);
-            }
-        }
 
-        return $this;
-    }
+
+
 }

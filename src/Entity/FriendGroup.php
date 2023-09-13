@@ -8,22 +8,24 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FriendGroupRepository::class)]
-class FriendGroup
+class   FriendGroup
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'friend_group_id')]
-    private ?Activities $activities = null;
 
     #[ORM\ManyToMany(targetEntity: Users::class, mappedBy: 'friend_group_id')]
     private Collection $users;
 
+    #[ORM\OneToMany(mappedBy: 'friendGroup', targetEntity: Activities::class, orphanRemoval: true)]
+    private Collection $activities;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->activities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -31,17 +33,6 @@ class FriendGroup
         return $this->id;
     }
 
-    public function getActivities(): ?Activities
-    {
-        return $this->activities;
-    }
-
-    public function setActivities(?Activities $activities): static
-    {
-        $this->activities = $activities;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Users>
@@ -65,6 +56,36 @@ class FriendGroup
     {
         if ($this->users->removeElement($user)) {
             $user->removeFriendGroupId($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Activities>
+     */
+    public function getActivities(): Collection
+    {
+        return $this->activities;
+    }
+
+    public function addActivity(Activities $activity): static
+    {
+        if (!$this->activities->contains($activity)) {
+            $this->activities->add($activity);
+            $activity->setFriendGroup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActivity(Activities $activity): static
+    {
+        if ($this->activities->removeElement($activity)) {
+            // set the owning side to null (unless already changed)
+            if ($activity->getFriendGroup() === $this) {
+                $activity->setFriendGroup(null);
+            }
         }
 
         return $this;
