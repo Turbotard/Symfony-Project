@@ -31,6 +31,9 @@ class Users
     #[ORM\ManyToMany(targetEntity: FriendGroup::class, inversedBy: 'users')]
     private Collection $friend_group_id;
 
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
+
     public function __construct()
     {
         $this->friend_group_id = new ArrayCollection();
@@ -109,6 +112,18 @@ class Users
     public function removeFriendGroupId(FriendGroup $friendGroupId): static
     {
         $this->friend_group_id->removeElement($friendGroupId);
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
 
         return $this;
     }
