@@ -29,6 +29,11 @@
         .back-btn {
             font-family: 'Montserrat', sans-serif;
             text-decoration: none;
+            color: #007bb5;
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
         }
 
     </style>
@@ -36,6 +41,7 @@
     <h1>Create new Users</h1>
 
     {{ include('users/_form.html.twig') }}
+
     <div class='back-group'>
         <i class="fas fa-arrow-left arrow"></i>
         <a href="{{ path('app_friend_group_index') }}" class='back-btn'>Back to list</a>
