@@ -17,12 +17,6 @@
             padding: 20px 0;
         }
 
-        /* Bouton */
-        .create-btn {
-            float: right;
-            margin: 20px;
-        }
-
         /* Tableau */
         .table {
             width: 90%;
@@ -69,20 +63,26 @@
             background-color: #007bb5;
             color: #ffffff;
         }
+
+        /* Style spécifique pour le bouton "Create new" */
+        .create-btn {
+            display: block;
+            width: max-content;
+            margin: 10px auto;
+        }
+
     </style>
 {% endblock %}
 
 {% block body %}
-    <h1>Loic doit de l'argent</h1>
-
-    <a href="{{ path('app_users_new') }}" class="create-btn">Create new</a>
+    <h1>L.D.D.A</h1>
 
     <table class="table">
         <thead>
         <tr>
             <!-- ID retiré -->
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
             <th>Birthday</th>
             <th>Password</th>
             <th>Email</th>
@@ -110,4 +110,7 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <!-- Bouton "Create new" déplacé ici -->
+    <a href="{{ path('app_users_new') }}" class="create-btn">Create new</a>
 {% endblock %}
