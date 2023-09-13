@@ -26,7 +26,8 @@ class UsersType extends AbstractType
                 ])
             ->add('birthday',
                 DateType::class,[
-                    'required' => true,
+                    'required' => true,'widget' => 'choice',
+                    'years' => range(date('Y')-100, date('Y'))
                 ])
             ->add('password',
                 PasswordType::class,[

@@ -25,6 +25,10 @@ class Activities
     #[ORM\JoinColumn(nullable: false)]
     private ?FriendGroup $friendGroup = null;
 
+    #[ORM\ManyToOne(inversedBy: 'activities')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Users $user = null;
+
 
 
 
@@ -66,6 +70,18 @@ class Activities
     public function setFriendGroup(?FriendGroup $friendGroup): static
     {
         $this->friendGroup = $friendGroup;
+
+        return $this;
+    }
+
+    public function getUser(): ?Users
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Users $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
