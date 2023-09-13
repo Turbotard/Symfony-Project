@@ -74,6 +74,7 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Group Name</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -81,6 +82,7 @@
         {% for friend_group in friend_groups %}
             <tr>
                 <td>{{ friend_group.id }}</td>
+                <td>{{ friend_group.name }}</td>
                 <td>
                     <a href="{{ path('app_friend_group_show', {'id': friend_group.id}) }}">show</a>
                     <a href="{{ path('app_friend_group_edit', {'id': friend_group.id}) }}">edit</a>
@@ -88,7 +90,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
