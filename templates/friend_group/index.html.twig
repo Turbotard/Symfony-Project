@@ -79,7 +79,6 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Group Name</th>
             <th>actions</th>
         </tr>
@@ -87,7 +86,6 @@
         <tbody>
         {% for friend_group in friend_groups %}
             <tr>
-                <td>{{ friend_group.id }}</td>
                 <td>{{ friend_group.name }}</td>
                 <td>
                     <a href="{{ path('app_friend_group_show', {'id': friend_group.id}) }}">show</a>
