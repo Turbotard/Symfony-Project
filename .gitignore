@@ -9,6 +9,7 @@
 /vendor/
 .env
 .idea
+workspace.xml
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

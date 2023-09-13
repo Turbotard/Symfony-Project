@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac29ad03-af8c-4134-b824-c6adc35444b2" name="Changes" comment="update gitignore">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-    </list>
+    <list default="true" id="ac29ad03-af8c-4134-b824-c6adc35444b2" name="Changes" comment="update gitignore .idea" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +200,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694587655700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update gitignore2">
+      <option name="closed" value="true" />
+      <created>1694587742526</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694587742526</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update gitignore .idea">
+      <option name="closed" value="true" />
+      <created>1694587834218</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694587834218</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +225,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="random" />
     <MESSAGE value="update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+    <MESSAGE value="update gitignore2" />
+    <MESSAGE value="update gitignore .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore .idea" />
   </component>
 </project>
