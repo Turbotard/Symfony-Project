@@ -76,10 +76,8 @@
 {% block body %}
     <h1>Form Title</h1>
 
-    <div class='test-class'>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-    <div>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
     
     <div style="text-align: center;">
         <button class="btn">{{ button_label|default('Save') }}</button>
