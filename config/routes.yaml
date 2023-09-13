@@ -6,4 +6,4 @@ controllers:
 
 register:
     path: /register
-    controller: App\Controller\RegistrationController::registration
+    controller: App\Controller\UsersController::new
