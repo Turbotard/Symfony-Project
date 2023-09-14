@@ -19,7 +19,7 @@ class CalculBalanceServices{
             $users[$user->getFirstname()] = 0.0;
         }
         foreach ($group->getActivities() as $activity){
-            $users[$activity->getUser()->getFirstname()] += $activity->getCost();
+                $users[$activity->getUser()->getFirstname()] += $activity->getCost();
         }
 
         $totalUsers = count($group->getUsers());
