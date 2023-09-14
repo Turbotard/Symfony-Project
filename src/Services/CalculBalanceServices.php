@@ -16,10 +16,10 @@ class CalculBalanceServices{
         $activities = [];
         $users = [];
         foreach ($group->getUsers() as $user){
-            $users[$user->getId()] = 0.0;
+            $users[$user->getFirstname()] = 0.0;
         }
         foreach ($group->getActivities() as $activity){
-            $users[$activity->getUser()->getId()] += $activity->getCost();
+            $users[$activity->getUser()->getFirstname()] += $activity->getCost();
         }
 
         $totalUsers = count($group->getUsers());
