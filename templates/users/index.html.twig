@@ -80,11 +80,9 @@
     <table class="table">
         <thead>
         <tr>
-            <!-- ID retiré -->
             <th>First name</th>
             <th>Last name</th>
             <th>Birthday</th>
-            <th>Password</th>
             <th>Email</th>
             <th>actions</th>
         </tr>
@@ -96,7 +94,6 @@
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.birthday ? user.birthday|date('Y-m-d') : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>{{ user.email }}</td>
                 <td>
                     <a href="{{ path('app_users_show', {'id': user.id}) }}">show</a>
