@@ -3,6 +3,111 @@
 {% block title %}Users{% endblock %}
 
 {% block body %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <style>
+        /* General styles */
+        body {
+            background-color: #e6f7ff;
+            font-family: Montserrat, sans-serif;
+        }
+
+        /* Header style */
+        h1 {
+            text-align: center;
+            color: #007bb5;
+            padding: 20px 0;
+        }
+
+        /* Table styles */
+        .table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            background-color: #007bb5;
+            color: #ffffff;
+            border-bottom: 2px solid #e6f7ff;
+        }
+
+        .table td {
+            padding-left: 30px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            text-align: left;
+            background-color: #f0faff;
+        }
+
+        .back-group {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #007bb5;
+            margin: 10px 10px;
+            padding: 5px 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #007bb5;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: #007bb5;
+        }
+
+        .back-group a {
+            text-decoration: none;
+            color: #007bb5;
+            transition: color 0.3s;
+        }
+
+        .back-group:hover {
+            background-color: #007bb5;
+            color: #ffffff;
+        }
+
+        .back-group:hover a {
+            color: #ffffff;
+        }
+
+        .edit-btn {
+            color: #007bb5;
+            margin: 10px 10px;
+            padding: 5px 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #007bb5;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: #007bb5;
+        }
+
+        .edit-btn a {
+            text-decoration: none;
+            color: #007bb5;
+            transition: color 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #007bb5;
+            color: #ffffff;
+        }
+
+        .edit-btn:hover a {
+            color: #ffffff;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
     <h1>Users</h1>
 
     <table class="table">
@@ -34,9 +139,13 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_users_index') }}">back to list</a>
+    <div class='back-group'>
+        <i class="fas fa-arrow-left arrow"></i>
+        <a href="{{ path('app_users_index') }}" class='back-btn'>Back to list</a>
+    </div>
 
-    <a href="{{ path('app_users_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('users/_delete_form.html.twig') }}
+    <div class='btn-group'>
+        <a href="{{ path('app_users_edit', {'id': user.id}) }}" class='edit-btn'>Edit</a>
+        {{ include('users/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

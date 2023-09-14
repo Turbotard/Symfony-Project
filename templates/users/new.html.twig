@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New FriendGroup{% endblock %}
+{% block title %}New Users{% endblock %}
 
 {% block body %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -19,6 +19,15 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
 
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: #007bb5;
+        }
+
+        .back-group a {
+            text-decoration: none;
+            color: #007bb5;
+            transition: color 0.3s;
         }
 
         .back-group:hover {
@@ -26,16 +35,9 @@
             color: #ffffff;
         }
 
-        .back-btn {
-            font-family: 'Montserrat', sans-serif;
-            text-decoration: none;
-            color: #007bb5;
-        }
-
-        .back-btn:hover {
+        .back-group:hover a {
             color: #ffffff;
         }
-
     </style>
 
     <h1>Create new Users</h1>
@@ -44,6 +46,6 @@
 
     <div class='back-group'>
         <i class="fas fa-arrow-left arrow"></i>
-        <a href="{{ path('app_friend_group_index') }}" class='back-btn'>Back to list</a>
+        <a href="{{ path('app_users_index') }}" class='back-btn'>Back to list</a>
     </div>
 {% endblock %}
