@@ -72,7 +72,6 @@
             cursor: pointer;
             z-index: 1;
             background: var(--blue);
-            transform: translateY(-50%);
             transition: all 0.2s;
             border-radius: 50%;
 
@@ -88,6 +87,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
             transform: translateY(0);
             transition: all 0.4s;
         }
@@ -121,6 +121,7 @@
 
         .menu li a span {
             top: 0;
+            left: 0;
             position:absolute;
             transform: translateY(calc(-100% - 5px));
             font-size: 14px;
@@ -138,7 +139,6 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            margin-right: 10px;
         }
 
         .menu-item span {
@@ -158,22 +158,22 @@
 
         .nav input:checked ~ .menu li:nth-child(2) {
             top: -300px;
-            transition-delay: 0.2s;
+            transition-delay: 0.1s;
         }
 
         .nav input:checked ~ .menu li:nth-child(3) {
             top: -200px;
-            transition-delay: 0.3s;
+            transition-delay: 0.1s;
         }
 
         .nav input:checked ~ .menu li:nth-child(4) {
             top: -100px;
-            transition-delay: 0.4s;
+            transition-delay: 0.1s;
         }
 
         .nav input:checked ~ .menu li a span {
             opacity: 1;
-            transition-delay: 0.9s;
+            transition-delay: 0.5s;
         }
 
         img{
