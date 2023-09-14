@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L.D.D.A{% endblock %}
+
+{% block body %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+        :root {
+            --white: #ffffff;
+            --blue: rgba(91, 231, 243, 0.6);
+            --clearBlue: rgba(91, 231, 243, 0.6);
+            --darkblue: rgba(40, 105, 241, 0.61);
+        }
+
+        h1{
+            color: #2869F19B;
+            padding-top:4rem ;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--white);
+        }
+
+
+
+        /* MAIN STYLES
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        .nav {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            max-width: 400px;
+            padding-bottom: 20px;
+            border-radius: 5px 5px 25px 25px;
+            margin: 300px auto 0;
+            background: var(--white);
+            box-shadow: rgba(40, 105, 241, 0.61) 0 30px 60px -12px,
+            rgba(91, 231, 243, 0.29) 0 18px 36px -18px;
+        }
+
+        .nav [type="checkbox"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+
+        .nav [type="checkbox"] + label {
+            position: relative;
+            width: 75px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1;
+            background: var(--blue);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: all 0.2s;
+        }
+
+        .nav [type="checkbox"] + label:hover {
+            background: var(--clearBlue);
+        }
+
+        .menu li {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.4s;
+        }
+
+        .menu li:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+
+        .menu li:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+
+        .menu li:nth-child(3) {
+            transition-delay: 0.1s;
+        }
+
+        .menu li:nth-child(4) {
+            transition-delay: 0.05s;
+        }
+
+        .menu li a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue);
+        }
+
+        .menu li a span {
+            top: 0;
+            position:absolute;
+            transform: translateY(calc(-100% - 5px));
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: var(--darkblue);
+        }
+
+        .nav input:checked + label {
+            background: var(--darkblue);
+            transform: translateY(calc(-50% + 4px));
+        }
+
+        .nav input:checked ~ .menu li:nth-child(1) {
+            top: -210px;
+            transition-delay: 0.1s;
+        }
+
+        .nav input:checked ~ .menu li:nth-child(2) {
+            top: -160px;
+            left: calc(50% - 75px);
+            transition-delay: 0.2s;
+        }
+
+        .nav input:checked ~ .menu li:nth-child(3) {
+            top: -160px;
+            left: calc(50% + 75px);
+            transition-delay: 0.3s;
+        }
+
+        .nav input:checked ~ .menu li:nth-child(4) {
+            top: -110px;
+            transition-delay: 0.4s;
+        }
+
+        .nav input:checked ~ .menu li a span {
+            opacity: 1;
+            transition-delay: 0.9s;
+        }
+
+        img{
+            opacity: 1;
+        }
+
+
+
+    </style>
+
+    <h1>L.D.D.A</h1>
+    <nav class="nav">
+        <input id="menu" type="checkbox">
+        <label for="menu">Menu</label>
+        <ul class="menu">
+            <li>
+                <a href="/users">
+                    <img src="{{ asset('assets/register.png') }}" width="90%">
+
+                    <span>Se connecter</span>
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <img src="{{ asset('assets/activities.png') }}" width="90%">
+
+                    <span>Activités</span>
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <img src="{{ asset('assets/groupsIcon.png') }}" width="90%">
+
+                    <span>Groupes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/users/new">
+                    <img src="{{ asset('assets/login.png') }}" width="90%">
+
+                    <span>S'inscrire</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    </footer>
+{% endblock %}
