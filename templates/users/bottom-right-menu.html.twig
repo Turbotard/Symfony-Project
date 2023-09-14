@@ -23,8 +23,8 @@
         .logo{
             justify-content: center;
             padding-top: 5rem;
-
         }
+
         ul {
             list-style: none;
         }
@@ -45,24 +45,19 @@
         }
 
 
-        /* MAIN STYLES
-        –––––––––––––––––––––––––––––––––––––––––––––––––– */
         .nav {
-            position: relative;
+            position: absolute;
+            bottom: 0px;
+            right: 20px;
             display: flex;
             justify-content: center;
             max-width: 400px;
-            padding-bottom: 20px;
             border-radius: 5px 5px 25px 25px;
-            margin: 210px auto 0;
         }
 
         .nav [type="checkbox"] {
             position: absolute;
-            left: -9999px;
-        }
-        .label{
-
+            left: -9999px
         }
 
 
@@ -91,9 +86,9 @@
 
         .menu li {
             position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            transform: translateY(0);
             transition: all 0.4s;
         }
 
@@ -121,6 +116,7 @@
             align-items: center;
             justify-content: center;
             background: var(--blue);
+            transform: translateY(0);
         }
 
         .menu li a span {
@@ -133,30 +129,45 @@
             color: var(--darkblue);
         }
 
+        .menu-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .menu-item span {
+            font-size: 14px;
+            color: var(--darkblue);
+        }
+
         .nav input:checked + label {
             background: var(--darkblue);
             transform: translateY(calc(-50% + 4px));
         }
 
         .nav input:checked ~ .menu li:nth-child(1) {
-            top: -210px;
+            top: -400px;
             transition-delay: 0.1s;
         }
 
         .nav input:checked ~ .menu li:nth-child(2) {
-            top: -160px;
-            left: calc(50% - 75px);
+            top: -300px;
             transition-delay: 0.2s;
         }
 
         .nav input:checked ~ .menu li:nth-child(3) {
-            top: -160px;
-            left: calc(50% + 75px);
+            top: -200px;
             transition-delay: 0.3s;
         }
 
         .nav input:checked ~ .menu li:nth-child(4) {
-            top: -110px;
+            top: -100px;
             transition-delay: 0.4s;
         }
 
@@ -168,39 +179,46 @@
         img{
             opacity: 1;
         }
+
+
+
     </style>
-    
-    <img class="logo" src="{{ asset('assets/LDDA-logo.png') }}" width="25%">
+
     <nav class="nav">
         <input id="menu" type="checkbox">
         <label for="menu">Menu</label>
         <ul class="menu">
             <li>
                 <a href="/users">
-                    <img src="{{ asset('assets/register.png') }}" width="90%">
-
-                    <span>Se connecter</span>
+                    <div class="menu-item">
+                        <img src="{{ asset('assets/register.png') }}" width="90%">
+                        <span>Se connecter</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="/activities">
-                    <img src="{{ asset('assets/activities.png') }}" width="90%">
-
-                    <span>Activités</span>
+                    <div class="menu-item">
+                        <img src="{{ asset('assets/activities.png') }}" width="90%">
+                        <span>Activités</span>
+                    </div>
                 </a>
             </li>
             <li>
                 <a href="/friend/group">
-                    <img src="{{ asset('assets/groupsIcon.png') }}" width="90%">
-
-                    <span>Groupes</span>
+                    <div class="menu-item">
+                        <img src="{{ asset('assets/groupsIcon.png') }}" width="90%">
+                        <span>Groupes</span>
+                    </div>
                 </a>
             </li>
 
             <li>
                 <a href="/users/new">
-                    <img src="{{ asset('assets/login.png') }}" width="90%">
-                    <span>S'inscrire</span>
+                    <div class="menu-item">
+                        <img src="{{ asset('assets/login.png') }}" width="90%">
+                        <span>S'inscrire</span>
+                    </div>
                 </a>
             </li>
         </ul>

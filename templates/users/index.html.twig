@@ -5,12 +5,6 @@
 {% block stylesheets %}
     <style>
 
-        .sidenav{
-            
-        }
-
-
-
         /* Fond général */
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         body {
@@ -53,11 +47,12 @@
         .table td {
             padding: 10px;
             text-align: center;
+            color: black !important;
         }
 
         /* Liens */
         a {
-            color: #007bb5;
+            color: #007bb5 !important;
             text-decoration: none;
             margin: 0 10px;
             padding: 5px 10px;
@@ -67,9 +62,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .logo{
-            padding-left: 39rem;
-
-
+            
         }
 
         a:hover {
@@ -138,4 +131,7 @@
 
     <!-- Bouton "Create new" déplacé ici -->
     <a href="{{ path('app_users_new') }}" class="create-btn">Create new</a>
+
+    {{ include('users/bottom-right-menu.html.twig') }}
+
 {% endblock %}
