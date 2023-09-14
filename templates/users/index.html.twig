@@ -12,9 +12,10 @@
 
 
         /* Fond général */
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         body {
             background-color: #e6f7ff;
-            font-family: Arial, sans-serif;
+            font-family: Montserrat, sans-serif;
         }
 
         /* En-tête */
@@ -123,8 +124,8 @@
                 <td>{{ user.password }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    <a href="{{ path('app_users_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_users_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('app_users_show', {'id': user.id}) }}">Show</a>
+                    <a href="{{ path('app_users_edit', {'id': user.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}

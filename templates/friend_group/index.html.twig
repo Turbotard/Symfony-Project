@@ -4,11 +4,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
         /* Form general styles */
         body {
             background-color: #e6f7ff;
-            font-family: Arial, sans-serif;
+            font-family: Montserrat, sans-serif;
         }
 
         /* Header style */
@@ -88,8 +89,8 @@
             <tr>
                 <td>{{ friend_group.name }}</td>
                 <td>
-                    <a href="{{ path('app_friend_group_show', {'id': friend_group.id}) }}">show</a>
-                    <a href="{{ path('app_friend_group_edit', {'id': friend_group.id}) }}">edit</a>
+                    <a href="{{ path('app_friend_group_show', {'id': friend_group.id}) }}">Show</a>
+                    <a href="{{ path('app_friend_group_edit', {'id': friend_group.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}

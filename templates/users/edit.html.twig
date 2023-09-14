@@ -3,11 +3,58 @@
 {% block title %}Edit Users{% endblock %}
 
 {% block body %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <style>
+        .back-group {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #007bb5;
+            margin: 10px 10px;
+            padding: 5px 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #007bb5;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: #007bb5;
+        }
+
+        .back-group a {
+            text-decoration: none;
+            color: #007bb5;
+            transition: color 0.3s;
+        }
+
+        .back-group:hover {
+            background-color: #007bb5;
+            color: #ffffff;
+        }
+
+        .back-group:hover a {
+            color: #ffffff;
+        }
+
+        .delete-btn {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
     <h1>Edit Users</h1>
 
     {{ include('users/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_users_index') }}">back to list</a>
+    <div class='back-group'>
+        <i class="fas fa-arrow-left arrow"></i>
+        <a href="{{ path('app_users_index') }}" class='back-btn'>Back to list</a>
+    </div>
 
-    {{ include('users/_delete_form.html.twig') }}
+    <div class='delete-btn'>
+        {{ include('users/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
