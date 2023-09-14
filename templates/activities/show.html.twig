@@ -4,11 +4,14 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
     <style>
         /* General styles */
         body {
             background-color: #e6f7ff;
-            font-family: Arial, sans-serif;
+            font-family: Montserrat, sans-serif;
         }
 
         /* Header style */
@@ -69,6 +72,40 @@
         .back-group:hover a {
             color: #ffffff;
         }
+
+        .edit-btn {
+            color: #007bb5;
+            margin: 10px 10px;
+            padding: 5px 10px;
+            background-color: #e6f7ff;
+            border: 1px solid #007bb5;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: #007bb5;
+        }
+
+        .edit-btn a {
+            text-decoration: none;
+            color: #007bb5;
+            transition: color 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #007bb5;
+            color: #ffffff;
+        }
+
+        .edit-btn:hover a {
+            color: #ffffff;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         </style>
 {% endblock %}
 
@@ -92,10 +129,13 @@
         </tbody>
     </table>
 
-    <div style="text-align: center;">
-        <a href="{{ path('app_activities_index') }}">back to list</a>
-        <a href="{{ path('app_activities_edit', {'id': activity.id}) }}">edit</a>
+    <div class='back-group'>
+        <i class="fas fa-arrow-left arrow"></i>
+        <a href="{{ path('app_users_index') }}" class='back-btn'>Back to list</a>
     </div>
 
-    {{ include('activities/_delete_form.html.twig') }}
+    <div class='btn-group'>
+        <a href="{{ path('app_activities_edit', {'id': activity.id}) }}" class='edit-btn'>Edit</a>
+        {{ include('activities/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
