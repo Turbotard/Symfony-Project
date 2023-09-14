@@ -8,15 +8,11 @@
 
         :root {
             --white: #ffffff;
-            --blue: rgba(91, 231, 243, 0.6);
-            --clearBlue: rgba(91, 231, 243, 0.6);
-            --darkblue: rgba(40, 105, 241, 0.61);
+            --blue: rgb(230, 247, 255);
+            --clearBlue: rgb(0, 123, 181);
+            --darkblue: rgb(0, 123, 181);
         }
 
-        h1{
-            color: #2869F19B;
-            padding-top:4rem ;
-        }
         * {
             margin: 0;
             padding: 0;
@@ -24,6 +20,11 @@
         }
 
 
+        .logo{
+            justify-content: center;
+            padding-top: 5rem;
+
+        }
         ul {
             list-style: none;
         }
@@ -36,14 +37,16 @@
         body {
             font-family: "Inter", sans-serif;
             text-align: center;
-            padding: 0 20px;
+            padding: 20px 20px;
             color: var(--white);
         }
+        .logo{
+            justify-content: center;
 
 
 
-        /* MAIN STYLES
-        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        }
+
         .nav {
             position: relative;
             display: flex;
@@ -51,15 +54,15 @@
             max-width: 400px;
             padding-bottom: 20px;
             border-radius: 5px 5px 25px 25px;
-            margin: 300px auto 0;
-            background: var(--white);
-            box-shadow: rgba(40, 105, 241, 0.61) 0 30px 60px -12px,
-            rgba(91, 231, 243, 0.29) 0 18px 36px -18px;
+            margin: 210px auto 0;
         }
 
         .nav [type="checkbox"] {
             position: absolute;
             left: -9999px;
+        }
+        .label{
+
         }
 
 
@@ -74,13 +77,16 @@
             cursor: pointer;
             z-index: 1;
             background: var(--blue);
-            border-radius: 50%;
             transform: translateY(-50%);
             transition: all 0.2s;
+            border-radius: 50%;
+
         }
 
-        .nav [type="checkbox"] + label:hover {
+        .nav [type="checkbox"] + label {
             background: var(--clearBlue);
+            border-radius: 50%;
+
         }
 
         .menu li {
@@ -166,8 +172,8 @@
 
 
     </style>
-
-    <h1>L.D.D.A</h1>
+    <img class="logo" src="{{ asset('assets/LDDA-logo.png') }}" width="25%">
+$
     <nav class="nav">
         <input id="menu" type="checkbox">
         <label for="menu">Menu</label>

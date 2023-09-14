@@ -4,6 +4,13 @@
 
 {% block stylesheets %}
     <style>
+
+        .sidenav{
+            
+        }
+
+
+
         /* Fond général */
         body {
             background-color: #e6f7ff;
@@ -58,6 +65,11 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
+        .logo{
+            padding-left: 39rem;
+
+
+        }
 
         a:hover {
             background-color: #007bb5;
@@ -75,7 +87,19 @@
 {% endblock %}
 
 {% block body %}
-    <h1>L.D.D.A</h1>
+    <div id="mySidenav" class="sidenav">
+        <ul>
+            <a href="/home">Home</a>
+            <a href="">Login</a>
+            <a href="#">Register</a>
+            <a href="#">Groups</a>
+        </ul>
+    </div>
+        <img class="logo" src="{{ asset('assets/LDDA-logo.png') }}" width="12%">
+
+
+
+
 
     <table class="table">
         <thead>
