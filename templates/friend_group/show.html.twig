@@ -108,6 +108,10 @@
             flex-direction: column;
             align-items: center;
         }
+
+        .ID-number {
+            color: #007bb5 !important;
+        }
     </style>
 
     <h1>FriendGroup</h1>
@@ -116,7 +120,7 @@
         <tbody>
             <tr>
                 <th>ID</th>
-                <td>{{ friend_group.id }}</td>
+                <td class='ID-number'>{{ friend_group.id }}</td>
             </tr>
         </tbody>
     </table>
@@ -128,7 +132,6 @@
 
     <div class='btn-group'>
         <a href="{{ path('app_friend_group_edit', {'id': friend_group.id}) }}" class='edit-btn'>Edit</a>
-        {{ include('friend_group/_delete_form.html.twig') }}
     </div>
 
     {{ include('friend_group/bottom-right-menu.html.twig') }}
