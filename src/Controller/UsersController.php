@@ -76,6 +76,6 @@ class UsersController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_users_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 }
