@@ -3,17 +3,19 @@
 {% block title %}Users index{% endblock %}
 
 {% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
 
-
+        .sidenav{
+            
+        }
 
 
 
         /* Fond général */
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         body {
             background-color: #e6f7ff;
-            font-family: Montserrat, sans-serif;
+            font-family: Montserrat, sans-serif !important;
         }
 
         /* En-tête */
@@ -51,11 +53,12 @@
         .table td {
             padding: 10px;
             text-align: center;
+            color: black !important;
         }
 
         /* Liens */
         a {
-            color: #007bb5;
+            color: #007bb5 !important;
             text-decoration: none;
             margin: 0 10px;
             padding: 5px 10px;
@@ -65,14 +68,12 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .logo{
-            padding-left: 39rem;
-
-
+            
         }
 
         a:hover {
             background-color: #007bb5;
-            color: #ffffff;
+            color: #ffffff !important;
         }
 
         /* Style spécifique pour le bouton "Create new" */
@@ -86,15 +87,7 @@
 {% endblock %}
 
 {% block body %}
-    <div id="mySidenav" class="sidenav">
-        <ul>
-            <a href="/home">Home</a>
-            <a href="">Login</a>
-            <a href="#">Register</a>
-            <a href="#">Groups</a>
-        </ul>
-    </div>
-        <img class="logo" src="{{ asset('assets/LDDA-logo.png') }}" width="12%">
+    <h1> Users index</h1>
 
 
 
@@ -132,5 +125,8 @@
     </table>
 
     <!-- Bouton "Create new" déplacé ici -->
-    <a href="{{ path('app_users_new') }}" class="create-btn">Create new</a>
+    <a href="{{ path('app_register') }}" class="create-btn">Create new</a>
+
+    {{ include('users/bottom-right-menu.html.twig') }}
+
 {% endblock %}

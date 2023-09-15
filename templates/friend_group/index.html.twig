@@ -47,6 +47,7 @@
         .table td {
             padding: 10px;
             text-align: center;
+            color: #007bb5 !important;
         }
 
         /* Link styles */
@@ -63,13 +64,18 @@
 
         a:hover {
             background-color: #007bb5;
-            color: #ffffff;
+            color: #ffffff !important;
         }
 
         .create-btn {
             display: block;
             width: max-content;
             margin: 10px auto;
+            color: #007bb5 !important;
+        }
+
+        .test_menu {
+            top: 10px !important;
         }
     </style>
 {% endblock %}
@@ -102,4 +108,7 @@
     </table>
 
     <a href="{{ path('app_friend_group_new') }}" class="create-btn">Create new</a>
+    <div class="test_menu">
+    {{ include('users/bottom-right-menu.html.twig') }}
+    </div>
 {% endblock %}

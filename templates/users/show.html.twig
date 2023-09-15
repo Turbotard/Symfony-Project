@@ -17,7 +17,7 @@
         /* Header style */
         h1 {
             text-align: center;
-            color: #007bb5;
+            color: #007bb5 !important;
             padding: 20px 0;
         }
 
@@ -40,6 +40,7 @@
             padding-bottom: 15px;
             text-align: left;
             background-color: #f0faff;
+            color: #007bb5 !important;
         }
 
         .back-group {
@@ -146,6 +147,8 @@
 
     <div class='btn-group'>
         <a href="{{ path('app_users_edit', {'id': user.id}) }}" class='edit-btn'>Edit</a>
-        {{ include('users/_delete_form.html.twig') }}
     </div>
+
+    {{ include('users/bottom-right-menu.html.twig') }}
+
 {% endblock %}

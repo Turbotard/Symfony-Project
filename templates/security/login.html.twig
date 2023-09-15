@@ -7,13 +7,18 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
         body {
-            background-color: #e6f7ff;
-            font-family: Montserrat, sans-serif;
+            background-color: #e6f7ff !important;
+            font-family: Montserrat, sans-serif !important;
+        }
+        
+        .input-box {
+            display: flex;
+            justify-content: center;
         }
 
         h1 {
-            text-align: center;
-            color: #007bb5;
+            text-align: center !important;
+            color: #007bb5 !important;
             padding: 20px 0;
         }
 
@@ -27,10 +32,19 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
+        p {
+            margin-bottom: 20px;
+        }
+
         .form-control,
         label {
             display: block; /* Ceci assure que les éléments prennent toute la largeur et sont empilés verticalement */
             margin-bottom: 10px; /* Ceci crée un espacement entre eux */
+            color: black !important;
+        }
+
+        .mb-3 {
+            color: black !important;
         }
 
         .alert-danger {
@@ -42,7 +56,7 @@
         }
 
         a {
-            color: #007bb5;
+            color: #007bb5 !important;
             text-decoration: none;
             margin: 0 10px;
             padding: 5px 10px;
@@ -53,8 +67,8 @@
         }
 
         a:hover {
-            background-color: #007bb5;
-            color: #ffffff;
+            background-color: #007bb5 !important;
+            color: #ffffff !important;
         }
 
         button.btn-primary {
@@ -62,12 +76,21 @@
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            color: #ffffff;
+            color: #ffffff !important;
             transition: background-color 0.3s;
         }
 
         button.btn-primary:hover {
             background-color: #005993;
+        }
+
+        .username {
+            display: flex;
+            justify-content: center !important;
+        }
+
+        .mail-password-text {
+            text-align: left !important;
         }
 
     </style>
@@ -80,16 +103,17 @@
         {% endif %}
 
         {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            <div class="mb-3 text">
+                <p>You are logged in as {{ app.user.userIdentifier }}</p>
+                <a href="{{ path('app_logout') }}">Logout</a>
             </div>
         {% endif %}
 
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Email</label>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+        <label for="username" class='mail-password-text'>Email</label>
+        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control input-box" autocomplete="email" required autofocus>
+        <label for="password" class='mail-password-text'>Password</label>
+        <input type="password" name="_password" id="password" class="form-control input-box" autocomplete="current-password" required>
 
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}"
@@ -104,4 +128,6 @@
             Sign in
         </button>
     </form>
+
+    {{ include('users/bottom-right-menu.html.twig') }}
 {% endblock %}

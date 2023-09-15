@@ -39,6 +39,7 @@ class ActivitiesController extends AbstractController
         return $this->render('activities/new.html.twig', [
             'activity' => $activity,
             'form' => $form,
+
         ]);
     }
 
@@ -49,6 +50,7 @@ class ActivitiesController extends AbstractController
             'activity' => $activity,
         ]);
     }
+
 
     #[Route('/{id}/edit', name: 'app_activities_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Activities $activity, EntityManagerInterface $entityManager): Response
@@ -67,6 +69,7 @@ class ActivitiesController extends AbstractController
             'form' => $form,
         ]);
     }
+
 
     #[Route('/{id}', name: 'app_activities_delete', methods: ['POST'])]
     public function delete(Request $request, Activities $activity, EntityManagerInterface $entityManager): Response
