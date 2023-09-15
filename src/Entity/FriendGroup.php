@@ -16,7 +16,7 @@ class   FriendGroup
     private ?int $id = null;
 
 
-    #[ORM\ManyToMany(targetEntity: Users::class, mappedBy: 'friend_group_id')]
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'friend_group_id')]
     private Collection $users;
 
     #[ORM\OneToMany(mappedBy: 'friendGroup', targetEntity: Activities::class, orphanRemoval: true)]
@@ -38,14 +38,14 @@ class   FriendGroup
 
 
     /**
-     * @return Collection<int, Users>
+     * @return Collection<int, User>
      */
     public function getUsers(): Collection
     {
         return $this->users;
     }
 
-    public function addUser(Users $user): static
+    public function addUser(User $user): static
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
@@ -55,7 +55,7 @@ class   FriendGroup
         return $this;
     }
 
-    public function removeUser(Users $user): static
+    public function removeUser(User $user): static
     {
         if ($this->users->removeElement($user)) {
             $user->removeFriendGroupId($this);

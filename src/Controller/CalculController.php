@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\FriendGroup;
-use App\Entity\Users;
+use App\Entity\User;
 use App\Services\CalculBalanceServices;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
