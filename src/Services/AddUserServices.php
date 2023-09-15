@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use http\Client\Curl\User;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+
 class AddUserServices{
     private $entityManager;
     public function __construct(EntityManagerInterface $entityManager, ValidatorInterface $validator){
