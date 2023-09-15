@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Activities;
 use App\Entity\FriendGroup;
 use App\Entity\User;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +22,13 @@ class ActivitiesType extends AbstractType
             ->add('cost')
             ->add('friendGroup',EntityType::class,
                 [
-                    'required'=>true, 'class' => FriendGroup::class, 'choice_label' => 'name'])
+                    'required'=>true,
+                    'query_builder' => function (EntityRepository $er) use ($options) {
+                    return $er->createQueryBuilder('fg')
+                        ->orderBy('fg.name', 'ASC')
+                        ->where('fg.id IN (:userId)')
+                        ->setParameter('userId', [$options['userId']]);
+                    }, 'class' => FriendGroup::class, 'choice_label' => 'name'])
             ->add('user', EntityType::class,
                 [
                     'required'=>true, 'class' => User::class, 'choice_label' => 'email'])
@@ -30,6 +38,8 @@ class ActivitiesType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'userId' => null,
+
             'data_class' => Activities::class,
         ]);
     }

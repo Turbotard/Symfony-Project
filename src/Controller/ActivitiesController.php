@@ -25,8 +25,8 @@ class ActivitiesController extends AbstractController
     #[Route('/new', name: 'app_activities_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $activity = new Activities();
-        $form = $this->createForm(ActivitiesType::class, $activity);
+            $activity = new Activities();
+        $form = $this->createForm(ActivitiesType::class, $activity, ['userId' => $this->getUser()->getId()]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
