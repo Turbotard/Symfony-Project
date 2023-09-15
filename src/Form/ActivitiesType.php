@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Activities;
 use App\Entity\FriendGroup;
-use App\Entity\Users;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -38,7 +38,7 @@ class ActivitiesType extends AbstractType
             ])
             ->add('user', EntityType::class,
                 [
-                    'required'=>true, 'class' => Users::class, 'choice_label' => 'email'])
+                    'required'=>true, 'class' => User::class, 'choice_label' => 'email'])
         ;
 
     }

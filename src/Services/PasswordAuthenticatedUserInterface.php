@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Security\Core\User;
+namespace Symfony\Component\Security\Core\Users;
 
 /**
  * For users that can be authenticated using a password.

@@ -2,7 +2,7 @@
 namespace App\Services;
 
 use App\Entity\FriendGroup;
-use App\Entity\Users;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
 class CalculBalanceServices{

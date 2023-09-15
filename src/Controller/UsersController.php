@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Users;
+use App\Entity\User;
 use App\Form\UsersType;
 use App\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,7 +25,7 @@ class UsersController extends AbstractController
     #[Route('/new', name: 'app_users_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $user = new Users();
+        $user = new User();
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
@@ -43,7 +43,7 @@ class UsersController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_users_show', methods: ['GET'])]
-    public function show(Users $user): Response
+    public function show(User $user): Response
     {
         return $this->render('users/show.html.twig', [
             'user' => $user,
@@ -51,7 +51,7 @@ class UsersController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_users_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Users $user, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
@@ -69,7 +69,7 @@ class UsersController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_users_delete', methods: ['POST'])]
-    public function delete(Request $request, Users $user, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager->remove($user);
