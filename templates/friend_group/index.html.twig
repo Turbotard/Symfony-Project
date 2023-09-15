@@ -47,6 +47,7 @@
         .table td {
             padding: 10px;
             text-align: center;
+            color: #007bb5 !important;
         }
 
         /* Link styles */
@@ -70,6 +71,10 @@
             display: block;
             width: max-content;
             margin: 10px auto;
+            color: #007bb5 !important;
+        }
+        .test_menu {
+            top: 10px !important;
         }
     </style>
 {% endblock %}
@@ -102,5 +107,7 @@
     </table>
 
     <a href="{{ path('app_friend_group_new') }}" class="create-btn">Create new</a>
-    {{ include('friend_group/_delete_form.html.twig') }}
+    <div class="test_menu">
+    {{ include('users/bottom-right-menu.html.twig') }}
+    </div>
 {% endblock %}
