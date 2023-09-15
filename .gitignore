@@ -9,7 +9,9 @@
 /vendor/
 .env
 .idea
+
 workspace.xml
+.DS_Store
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
