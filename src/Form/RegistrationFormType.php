@@ -21,8 +21,10 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('firstname')
             ->add('lastname')
-            ->add('birthday', DateType::class)
-
+            ->add('birthday', DateType::class, array(
+                'widget' => 'choice',
+                'years' => range(date('Y'), date('Y')-100)
+            ))
             // Add plainPassword and agreeTerms at the very end to ensure they appear last in the form.
             ->add('plainPassword', PasswordType::class, [
                 'mapped' => false,
