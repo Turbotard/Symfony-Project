@@ -21,6 +21,8 @@ class Activities
     #[ORM\Column]
     private ?float $cost = null;
 
+
+
     #[ORM\ManyToOne(inversedBy: 'activities')]
     #[ORM\JoinColumn(nullable: false)]
     private ?FriendGroup $friendGroup = null;
@@ -28,6 +30,9 @@ class Activities
     #[ORM\ManyToOne(inversedBy: 'activities')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $currencies = null;
 
 
 
@@ -82,6 +87,18 @@ class Activities
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCurrencies(): ?string
+    {
+        return $this->currencies;
+    }
+
+    public function setCurrencies(string $currencies): static
+    {
+        $this->currencies = $currencies;
 
         return $this;
     }

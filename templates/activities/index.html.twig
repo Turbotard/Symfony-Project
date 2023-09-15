@@ -85,6 +85,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Cost</th>
+            <th>Currencies</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -94,6 +95,7 @@
                 <td>{{ activity.id }}</td>
                 <td>{{ activity.name }}</td>
                 <td>{{ activity.cost }}</td>
+                <td>{{ activity.currencies }}</td>
                 <td>
                     <a href="{{ path('app_activities_show', {'id': activity.id}) }}">Show</a>
                     <a href="{{ path('app_activities_edit', {'id': activity.id}) }}">Edit</a>
