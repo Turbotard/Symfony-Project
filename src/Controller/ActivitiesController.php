@@ -26,7 +26,7 @@ class ActivitiesController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
             $activity = new Activities();
-        $form = $this->createForm(ActivitiesType::class, $activity, ['userId' => $this->getUser()->getId()]);
+        $form = $this->createForm(ActivitiesType::class, $activity, ['userId' => $this->getUser()]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

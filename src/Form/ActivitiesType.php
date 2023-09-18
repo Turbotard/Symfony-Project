@@ -20,13 +20,13 @@ class ActivitiesType extends AbstractType
 
             ->add('name')
             ->add('cost')
-            ->add('friendGroup',EntityType::class,
+            ->add('friendGroup',EntityType::class,//faut il changer le friendGroup en user ?
                 [
                     'required'=>true,
                     'query_builder' => function (EntityRepository $er) use ($options) {
                     return $er->createQueryBuilder('fg')
                         ->orderBy('fg.name', 'ASC')
-                        ->where('fg.id IN (:userId)')
+                        ->where('fg.users IN (:userId)')
                         ->setParameter('userId', [$options['userId']]);
                     }, 'class' => FriendGroup::class, 'choice_label' => 'name'])
             ->add('user', EntityType::class,
